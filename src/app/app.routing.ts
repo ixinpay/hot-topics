@@ -16,27 +16,27 @@ import { ListingsComponent } from './listings/listings.component';
 import { ProfileComponent } from './profile/profile.component';
 import {ActivationComponent} from './activation/activation.component'
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/chainpost', pathMatch: 'full' },
     // { path: 'landing', component: LandingComponent },
     { path: 'activate', component: ActivationComponent },
-    { path: 'home', component: HomeComponent, children:[
-        { path: '', component: ListingsComponent },
-        { path: 'listing:/cat', component: ListingsComponent },
-        // { path: 'contract', component: ContractComponent, canActivate: [AuthGuard] },
-        { path: 'claim', component: ClaimComponent, canActivate: [AuthGuard] },
-        { path: 'claim-detail', component: ClaimDetailComponent }
-    ] },
-    // {path: 'chainpost', component: ChainPostComponent, children:[
-    //   { path: '', component: PostListingsComponent },
-    //   { path: 'Post-listings', component: PostListingsComponent },
-    //   { path: 'Post-listings:/cat', component: PostListingsComponent },
-    //   { path: 'Post', component: PostComponent},
-    //   { path: 'Post-detail', component: PostDetailsComponent }
+    // { path: 'home', component: HomeComponent, children:[
+    //     { path: '', component: ListingsComponent },
+    //     { path: 'listing:/cat', component: ListingsComponent },
+    //     // { path: 'contract', component: ContractComponent, canActivate: [AuthGuard] },
+    //     { path: 'claim', component: ClaimComponent, canActivate: [AuthGuard] },
+    //     { path: 'claim-detail', component: ClaimDetailComponent }
+    // ] },
+    {path: 'chainpost', component: ChainPostComponent, children:[
+      { path: '', component: PostListingsComponent },
+      { path: 'Post-listings', component: PostListingsComponent },
+      { path: 'Post-listings:/cat', component: PostListingsComponent },
+      { path: 'Post', component: PostComponent},
+      { path: 'Post-detail', component: PostDetailsComponent }
 
-    // ]},
+    ]},
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    // { path: 'register', component: RegisterComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '/home' }
