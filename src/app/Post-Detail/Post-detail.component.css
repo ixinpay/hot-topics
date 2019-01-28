@@ -114,3 +114,16 @@ ngb-pagination /deep/ .pagination .page-item.active .page-link:hover {
     background-color: transparent;
     color: #FF8F00;
 }
+
+/* Adjust picture size NOT WORKING??? */
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Adjust page size */
+#top-container {
+  margin-left: auto;
+  margin-right: auto;
+}

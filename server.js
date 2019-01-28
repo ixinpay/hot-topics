@@ -7,7 +7,7 @@ const fs = require('fs')
 const ChainpageAppId = 1
 const ChainpostAppId = 2
     // The chain page url
-    //var gChainPageUrl = "http://localhost:4200";
+// var gChainPageUrl = "http://localhost:4200";
 var gChainPageUrl = "http://linkgear.net:8092";
 // Change the port in "mongo.service.ts" under src/app/_services
 // rebuild $ng serve
@@ -44,7 +44,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
-    //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.setHeader('Access-Control-Allow-Origin', gChainPageUrl);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
