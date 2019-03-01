@@ -9,7 +9,7 @@
             <li class="nav-right">
                 <select [(ngModel)]="selectedLanguage" (ngModelChange)="onChange($event)" class="nav-lang">
                             <option *ngFor="let lang of language" value="{{lang.Id}}">
-                                {{lang.Id == 1?"EN":lang.Description}}
+                                {{lang.Description}}
                             </option>
                 </select>
             </li>

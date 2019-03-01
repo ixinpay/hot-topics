@@ -10,7 +10,8 @@ import { environment } from 'environments/environment';
 @Injectable()
 export class MongoService {
     //private readonly API = 'http://linkcryptocoin.com:8080/api/';
-    private readonly API = location.protocol + '//' + location.hostname + ':8080/api/';
+    // private readonly API = location.protocol + '//' + location.hostname + ':8080/api/';
+    private readonly API = 'http://localhost:3000/api/';
     constructor(private http: Http) { }
 
     saveListing(listing) {
@@ -34,7 +35,7 @@ export class MongoService {
     GetListingsBySubcat(subcat, appId) {
         // let params = new HttpParams().set('cat', cat);
         return this.http.get(this.API + 'getListingsBySubcat/' + subcat + "/" + appId)
-        // .map((response: Response) => response.json())              
+        // .map((response: Response) => response.json())
     }
     GetListing(id, appId) {
         console.log(id);

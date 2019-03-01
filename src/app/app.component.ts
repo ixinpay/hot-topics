@@ -46,7 +46,7 @@ export class AppComponent {
     private idle: Idle, private keepalive: Keepalive, private globals: Globals,
     private oothservice: OothService, private titleService: Title
   ) {
-    translate.setDefaultLang('cn');
+    translate.setDefaultLang('en');
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       console.log("lang changed")
       translate.get('page_title').subscribe((res: string) => {
@@ -91,7 +91,7 @@ export class AppComponent {
             this.router.navigate(['/login']);
           });
 
-          // sets the ping interval to 15 seconds          
+          // sets the ping interval to 15 seconds
           keepalive.interval(environment.pingIntervalSec);
           keepalive.onPing.subscribe(() => {
             this.lastPing = new Date();

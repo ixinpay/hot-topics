@@ -42,12 +42,12 @@ export class TopNavComponent implements OnInit {
 
   public myCountries: any[] = [];
 
-  
+
   currentUser: string = undefined;
   currentUserAccount: string = undefined;
   CurrentUserName: string = undefined;
   currentUserEmail: string = undefined;
-  selectedLanguage = "2";
+  selectedLanguage = "1";
   selectedFlag: string;
   language: any[] = [];
   elementType: 'url' | 'canvas' | 'img' = 'url';
@@ -112,7 +112,7 @@ export class TopNavComponent implements OnInit {
         this.language = data.json();
         this.language.forEach(element => {
           // console.log(element)
-          if(element.Short == "cn"){
+          if(element.Short == "en"){
             this.selectedLanguage = element.Id;
             this.selectedFlag = element.src;
             // console.log(this.selectedFlag)
@@ -181,7 +181,7 @@ private loadCountries(locale: string): void {
     this.myCountries = [];
     // console.log(iso3166)
     for (const key of Object.keys(iso3166)) {
-      
+
       this.myCountries.push({ display: iso3166[key], value: key.toLowerCase() });
     }
     // sort

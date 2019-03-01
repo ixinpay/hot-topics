@@ -2,8 +2,8 @@
     <div class="col-sm-12 col-md-9 col-lg-9 col-xl-8 row">
         <div class="col-10">
             <div class="input-group searchBox align-middle">
-                <input type="text" id="txtSearch" #searchTxt class="form-control">
                 <span class="input-group-btn">
+                    <input type="text" id="txtSearch" #searchTxt class="form-control">
                     <button class="btn btn-primary btn-md" (click)="Search(txtSearch.value)"  translate>Search</button>
                     <button class="btn btn-info  btn-md" [routerLink]="['/chainpost']" translate>All Post</button>
                     <button class="btn btn-info  btn-md" [routerLink]="['/chainpost/Post']" translate>New Post</button>
@@ -17,11 +17,11 @@
                 <thead>
                 </thead>
                 <tbody>
-                    <tr class="page">
+                    <!-- <tr class="page">
                         <td colspan="5">
                             <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [maxSize]="maxSize" [pageSize]="pageSize" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr *ngFor="let Posts of PostsPage">
                         <th scope="row" class="th-sm">
                             <a [routerLink]="['/chainpost/Post-detail']" [queryParams]="{id: Posts._id}" (click)="incrementViewCount(Posts._id)">{{Posts.Title}}</a>
