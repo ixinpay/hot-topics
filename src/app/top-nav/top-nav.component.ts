@@ -28,6 +28,8 @@ export class TopNavComponent implements OnInit {
     pl: 'proszę wybrać...'
   };
   private defaultLabel: string;
+  categories: any[] = [];
+  Channel_cats: any[] = [];
 
   private sub: any;
 
@@ -42,12 +44,12 @@ export class TopNavComponent implements OnInit {
 
   public myCountries: any[] = [];
 
-  
+
   currentUser: string = undefined;
   currentUserAccount: string = undefined;
   CurrentUserName: string = undefined;
   currentUserEmail: string = undefined;
-  selectedLanguage = "2";
+  selectedLanguage = "1";
   selectedFlag: string;
   language: any[] = [];
   elementType: 'url' | 'canvas' | 'img' = 'url';
@@ -112,13 +114,31 @@ export class TopNavComponent implements OnInit {
         this.language = data.json();
         this.language.forEach(element => {
           // console.log(element)
-          if(element.Short == "cn"){
+          if(element.Short == "en"){
             this.selectedLanguage = element.Id;
             this.selectedFlag = element.src;
             // console.log(this.selectedFlag)
           }
         });
       });
+
+    /**
+     * get all categories
+     */
+    this.http.get('/assets/postcat.json')
+    .subscribe(data => {
+      this.categories = data.json();
+      // console.log(this.categories);
+
+      for (var i = 0; i < this.categories.length; i++) {
+
+        this.Channel_cats.push(this.categories[i].Description);
+
+
+      }
+    this.Channel_cats = this.Channel_cats.slice(3)
+    });
+
   }
   // get userLoggedIn(): boolean {
   //   // if (localStorage.getItem("currentUser")) {
@@ -181,7 +201,7 @@ private loadCountries(locale: string): void {
     this.myCountries = [];
     // console.log(iso3166)
     for (const key of Object.keys(iso3166)) {
-      
+
       this.myCountries.push({ display: iso3166[key], value: key.toLowerCase() });
     }
     // sort

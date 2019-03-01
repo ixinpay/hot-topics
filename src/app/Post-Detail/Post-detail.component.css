@@ -47,8 +47,14 @@ h4 {
     width: 85%
 }
 
+.post-Detail{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .row {
-    margin-left: 0px
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .post-comment {

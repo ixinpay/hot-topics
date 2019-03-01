@@ -37,6 +37,10 @@ var db = mongo.connect(`mongodb://${gDbServer}:27017/ChainPage`, function(err, r
     if (err) { console.log(err); } else { console.log('Connected to ' + db, ' + ', response); }
 });
 
+// var db = mongo.connect('mongodb://localhost/hot_topics', function(err, response) {
+//     if (err) { console.log(err); } else { console.log('Connected to ' + db, ' + ', response); }
+// });
+
 
 var app = express()
     //app.use(bodyParser());
@@ -465,3 +469,7 @@ if (httpsRun) {
         console.log(`dbServer app listening on port ${gPort}.`)
     })
 }
+// app.listen(3000, function(){
+//   console.log("OK");
+// });
+

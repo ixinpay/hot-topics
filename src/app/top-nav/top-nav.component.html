@@ -5,11 +5,29 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/chainpost']" [queryParams]="{postcat: 'Food'}">Food<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/chainpost']" [queryParams]="{postcat: 'Travel'}">Travel</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </a>
+              <div class="dropdown-menu dropdown-toggle" aria-labelledby="navbarDropdown">
+                <a *ngFor="let cat of Channel_cats"  class="dropdown-item" [routerLink]="['/chainpost']" [queryParams]="{postcat: cat}" [(ngModel)]="cat.Description" ngDefaultControl>
+                  {{cat}}
+                </a>
+              </div>
+            </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right ml-auto">
             <li class="nav-right">
                 <select [(ngModel)]="selectedLanguage" (ngModelChange)="onChange($event)" class="nav-lang">
                             <option *ngFor="let lang of language" value="{{lang.Id}}">
-                                {{lang.Id == 1?"EN":lang.Description}}
+                                {{lang.Description}}
                             </option>
                 </select>
             </li>
@@ -66,3 +84,4 @@
         </ul> -->
     </div>
 </nav>
+

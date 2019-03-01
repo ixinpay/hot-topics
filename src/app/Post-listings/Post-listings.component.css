@@ -1,11 +1,33 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
-}
+} */
 
 .searchBox {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.wrap{
+  width: 30%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  position: flex;
+}
+
+.searchButton {
+  position: absolute;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search {
+  width: 100%;
+  position: relative
 }
 
 .nopadding {
@@ -14,6 +36,7 @@
 }
 
 .btn {
+    margin: auto;
     background-color: #FF8F00 !important;
     box-shadow: none!important;
 }
@@ -27,7 +50,9 @@
 }
 
 .container {
-    margin-left: 100px;
+    position: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .page {
