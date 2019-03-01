@@ -36,6 +36,7 @@
 }
 
 .btn {
+    margin: auto;
     background-color: #FF8F00 !important;
     box-shadow: none!important;
 }
@@ -49,7 +50,7 @@
 }
 
 .container {
-    position: relative;
+    position: flex;
     margin-left: auto;
     margin-right: auto;
 }

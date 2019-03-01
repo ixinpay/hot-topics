@@ -28,6 +28,8 @@ export class TopNavComponent implements OnInit {
     pl: 'proszę wybrać...'
   };
   private defaultLabel: string;
+  categories: any[] = [];
+  Channel_cats: any[] = [];
 
   private sub: any;
 
@@ -119,6 +121,24 @@ export class TopNavComponent implements OnInit {
           }
         });
       });
+
+    /**
+     * get all categories
+     */
+    this.http.get('/assets/postcat.json')
+    .subscribe(data => {
+      this.categories = data.json();
+      // console.log(this.categories);
+
+      for (var i = 0; i < this.categories.length; i++) {
+
+        this.Channel_cats.push(this.categories[i].Description);
+
+
+      }
+    this.Channel_cats = this.Channel_cats.slice(3)
+    });
+
   }
   // get userLoggedIn(): boolean {
   //   // if (localStorage.getItem("currentUser")) {
