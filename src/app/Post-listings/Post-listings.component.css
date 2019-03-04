@@ -8,12 +8,12 @@
     margin-bottom: 2%;
 }
 
-.wrap{
-  width: 30%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  position: flex;
+#btngroup{
+  display: relative;
+  margin-bottom: 8.125px;
+  padding-top: 8.125px;
 }
+
 
 .searchButton {
   position: absolute;
