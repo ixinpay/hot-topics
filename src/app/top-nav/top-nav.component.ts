@@ -136,7 +136,7 @@ export class TopNavComponent implements OnInit {
 
 
       }
-    this.Channel_cats = this.Channel_cats.slice(3)
+    this.Channel_cats = this.Channel_cats.slice(4)
     });
 
   }
