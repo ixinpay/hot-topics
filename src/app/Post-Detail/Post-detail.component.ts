@@ -11,6 +11,7 @@ import { Http } from '@angular/http';
 import { environment } from 'environments/environment';
 import { Title } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
+import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 @Component({
   moduleId: module.id.toString(),
   selector: 'app-post-detail',
@@ -168,6 +169,18 @@ export class PostDetailsComponent implements OnInit {
         else {
           this.toasterService.pop("error", response.statusText);
         }
+        // video css
+        var arr = this.model.Narrative.split("frameborder");
+        let temp = '';
+        for(let i = 0; i < arr.length; i++){
+            if(i !== arr.length-1){
+                temp += arr[i] + 'style="width: 65%; height: 450px;" frameborder';
+            }else{
+                temp += arr[i];
+            }
+        }
+        this.model.Narrative = temp;
+        console.log(temp);
       });
   }
 
@@ -214,7 +227,7 @@ export class PostDetailsComponent implements OnInit {
               console.log("sending email to author ...");
               this.oothService.sendEmail(this.model.postedBy, this.globals.ChainPostNewCommentSubject
                 , this.globals.ChainPostNewCommentMessageToAuthor + window.location + '<br/><br/>New Comment by ' + this.currentUser + ':<br/>' + commentText);
-                
+
             }
             //send email to comment provider if he is not the author
             if (this.model.postedBy !== this.currentUser) {
@@ -452,7 +465,7 @@ export class PostDetailsComponent implements OnInit {
       // console.log(this.alreadyDisliked);
     }
   }
-  
+
   ngOnDestroy(): void {
     // this.subscription.unsubscribe();
   }

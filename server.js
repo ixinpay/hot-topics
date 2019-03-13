@@ -7,8 +7,8 @@ const fs = require('fs')
 const ChainpageAppId = 1
 const ChainpostAppId = 2
     // The chain page url
-// var gChainPageUrl = "http://localhost:4200";
-var gChainPageUrl = "http://linkgear.net:8092";
+var gChainPageUrl = "http://localhost:4200";
+// var gChainPageUrl = "http://linkgear.net:8092";
 // Change the port in "mongo.service.ts" under src/app/_services
 // rebuild $ng serve
 var gPort = 8080;
@@ -33,13 +33,13 @@ process.argv.forEach(function(val, index, array) {
     //console.log(`port = ${gPort}`)
     //console.log(`dbServer = ${gDbServer}`)
 
-var db = mongo.connect(`mongodb://${gDbServer}:27017/ChainPage`, function(err, response) {
-    if (err) { console.log(err); } else { console.log('Connected to ' + db, ' + ', response); }
-});
-
-// var db = mongo.connect('mongodb://localhost/hot_topics', function(err, response) {
+// var db = mongo.connect(`mongodb://${gDbServer}:27017/ChainPage`, function(err, response) {
 //     if (err) { console.log(err); } else { console.log('Connected to ' + db, ' + ', response); }
 // });
+
+var db = mongo.connect('mongodb://localhost/hot_topics', function(err, response) {
+    if (err) { console.log(err); } else { console.log('Connected to ' + db, ' + ', response); }
+});
 
 
 var app = express()
@@ -456,20 +456,20 @@ app.get("/api/searchListings/:searchtext/:appId", function(req, res) {
 })
 
 console.log(`https: ${httpsRun}`)
-if (httpsRun) {
-    const server = https.createServer({
-        key: fs.readFileSync('keys/key.pem'),
-        cert: fs.readFileSync('keys/cert.pem'),
-    }, app)
-    server.listen(gPort, function() {
-        console.log(`dbServer app listening on HTTPS port ${gPort}.`)
-    })
-} else {
-    app.listen(gPort, function() {
-        console.log(`dbServer app listening on port ${gPort}.`)
-    })
-}
-// app.listen(3000, function(){
-//   console.log("OK");
-// });
+// if (httpsRun) {
+//     const server = https.createServer({
+//         key: fs.readFileSync('keys/key.pem'),
+//         cert: fs.readFileSync('keys/cert.pem'),
+//     }, app)
+//     server.listen(gPort, function() {
+//         console.log(`dbServer app listening on HTTPS port ${gPort}.`)
+//     })
+// } else {
+//     app.listen(gPort, function() {
+//         console.log(`dbServer app listening on port ${gPort}.`)
+//     })
+// }
+app.listen(3000, function(){
+  console.log("OK");
+});
 
