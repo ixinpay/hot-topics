@@ -180,7 +180,6 @@ export class PostDetailsComponent implements OnInit {
             }
         }
         this.model.Narrative = temp;
-        console.log(temp);
       });
   }
 
